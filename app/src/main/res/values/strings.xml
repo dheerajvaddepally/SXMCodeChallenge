@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">S XM Code Challenge</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up!</string>
+    <string name="login">Login</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+</resources>
