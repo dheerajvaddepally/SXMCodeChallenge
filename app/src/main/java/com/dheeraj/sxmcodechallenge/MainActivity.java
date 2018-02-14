@@ -29,24 +29,26 @@ public class MainActivity extends AppCompatActivity {
         UserViewModel viewModel = new UserViewModel(new User("Email", "Password"));
         mBinding.setLogin(viewModel);
         mBinding.setLoginClick(() -> {
-            String email = mBinding.getLogin().getEmail().toString();
-            String password = mBinding.getLogin().getPassword().toString();
-            WebServiceManager manager = new WebServiceManager();
-            manager.makeWebServiceCall(email, password, new ServiceResponseListener() {
-                @Override
-                public void onResponse(BaseResponse response) {
-                    if (response.getStatusCode() == 200) {
-                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+            if(mBinding.getLogin().getEmail() != null && mBinding.getLogin().getPassword() != null) {
+                String email = mBinding.getLogin().getEmail().toString();
+                String password = mBinding.getLogin().getPassword().toString();
+                WebServiceManager manager = new WebServiceManager();
+                manager.makeWebServiceCall(email, password, new ServiceResponseListener() {
+                    @Override
+                    public void onResponse(BaseResponse response) {
+                        if (response.getStatusCode() == 200) {
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
 
-                @Override
-                public void onError() {
-                }
-            });
+                    @Override
+                    public void onError() {
+                    }
+                });
+            }
         });
     }
 }
