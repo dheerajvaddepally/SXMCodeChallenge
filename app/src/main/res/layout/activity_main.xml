@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <data>
+        <variable
+            name="login"
+            type="com.dheeraj.sxmcodechallenge.viewmodel.UserViewModel"/>
+        <variable
+            name="loginClick"
+            type="com.dheeraj.sxmcodechallenge.listeners.LoginClick"/>
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +32,8 @@
                 android:id="@+id/email_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_address"
+                android:text="@={login.email}"
+                android:hint="@{login.emailHint}"
                 android:maxLength="30" />
         </android.support.design.widget.TextInputLayout>
 
@@ -35,7 +43,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:text="@string/please_enter_a_valid_email_address"
-            android:textColor="#FF3C38"
+            android:textColor="@color/red"
             android:layout_marginLeft="24dp"/>
 
 
@@ -50,7 +58,8 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
+                android:text="@={login.password}"
+                android:hint="@{login.passwordHint}"
                 android:inputType="textPassword"
                 android:maxLength="20" />
 
@@ -62,7 +71,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:text="@string/please_enter_a_valid_password"
-            android:textColor="#FF3C38"
+            android:textColor="@color/red"
             android:layout_marginLeft="24dp"/>
 
 
@@ -82,10 +91,11 @@
             android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:padding="10dp"
+            android:onClick="@{v->loginClick.onLoginClick()}"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:fontFamily="monospace"
-            android:background="#009688"/>
+            android:background="@color/green"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

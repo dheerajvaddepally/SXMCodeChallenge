@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="splashbackground">#EF5D60</color>
+    <color name="green">#009688</color>
+    <color name="red">#FF3C38</color>
 </resources>

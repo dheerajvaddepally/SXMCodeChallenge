@@ -24,6 +24,7 @@ public final class Utils {
     }
 
     public static boolean isPasswordValid(String password){
-        return password.isEmpty() ? false : true;
+        return !password.isEmpty();
     }
+
 }
