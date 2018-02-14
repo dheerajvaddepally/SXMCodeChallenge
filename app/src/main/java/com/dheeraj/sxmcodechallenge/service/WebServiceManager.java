@@ -21,7 +21,7 @@ public class WebServiceManager {
     public static BaseResponse getLoginResponseStub(String email, String password) {
         // TODO: Make API Call
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1500);
             String expectedEmail = "dheeraj@gmail.com";
             String expectedPassword = "Welcome123";
 

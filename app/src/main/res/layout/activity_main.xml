@@ -41,8 +41,7 @@
             android:id="@+id/email_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="@string/please_enter_a_valid_email_address"
+            android:text="@{login.emailError}"
             android:textColor="@color/red"
             android:layout_marginLeft="24dp"/>
 
@@ -69,8 +68,7 @@
             android:id="@+id/password_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="@string/please_enter_a_valid_password"
+            android:text="@{login.passwordError}"
             android:textColor="@color/red"
             android:layout_marginLeft="24dp"/>
 
@@ -80,7 +78,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
             android:text="@string/remember_me" />
 
         <TextView
