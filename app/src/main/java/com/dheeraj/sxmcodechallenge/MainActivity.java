@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         UserViewModel viewModel = new UserViewModel(new User("Email", "Password"));
         mBinding.setLogin(viewModel);
         mBinding.setLoginClick(() -> {
-            if(mBinding.getLogin().getEmail() != null && mBinding.getLogin().getPassword() != null) {
-                String email = mBinding.getLogin().getEmail().toString();
-                String password = mBinding.getLogin().getPassword().toString();
+            String email = mBinding.getLogin().getEmail();
+            String password = mBinding.getLogin().getPassword();
+
+            if (email != null && password != null) {
                 WebServiceManager manager = new WebServiceManager();
                 manager.makeWebServiceCall(email, password, new ServiceResponseListener() {
                     @Override
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Error! Status Code 400.", Toast.LENGTH_SHORT).show();
                         }
                     }
 
